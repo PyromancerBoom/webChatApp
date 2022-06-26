@@ -1,0 +1,1 @@
+This is a chat application created as a joint project by Priyansh Bimbisariye and Harshit Pandit.
