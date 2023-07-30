@@ -1,17 +1,27 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react"
+import { Outlet, useNavigate } from "react-router-dom";
 
 import ContactList from "../layout/ContactList";
 
 export default function Root() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        document.onkeydown = (ev) => {
+            if (ev.key === "Escape") {
+                navigate("/")
+            }
+        }
+    })
 
     return (
         <div className="flex flex-row">
             <section className="w-[37em] h-full shadow-2xl">
                 <ContactList />
             </section>
-            <main className="w-full h-screen">
+            <div className="w-full h-screen transition-all">
                 <Outlet />
-            </main>
+            </div>
         </div>
     )
 }

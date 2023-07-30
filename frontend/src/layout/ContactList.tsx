@@ -1,6 +1,4 @@
-import { useEffect, useState, useRef } from "react"
-
-import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid"
+import { useEffect, useState } from "react"
 
 import Spinner from "../components/Spinner"
 import Contacts from "../components/Contacts";
@@ -8,11 +6,10 @@ import UserActions from "../components/UserActions";
 
 import { userType } from "../types";
 
+
 export default function ContactList() {
     const [loading, setLoading] = useState(true);
     const [contacts, setContacts] = useState<userType[]>([]);
-
-    const scrollRef = useRef<HTMLDListElement>();
 
     useEffect(() => {
         const fetchList = async () => {
@@ -21,6 +18,7 @@ export default function ContactList() {
                 setContacts(response)
             }
             catch (err) {
+                // instead of this throw an error showing contact list could not be loaded or resolved
                 console.error(err);
             }
             finally {
@@ -32,6 +30,7 @@ export default function ContactList() {
 
         fetchList();
     }, [contacts])
+
 
     return (
         <div className="bg-[#02010a]">
@@ -46,12 +45,14 @@ export default function ContactList() {
                 </div>
                 :
                 <>
-                    <div className="h-screen overflow-scroll">
-                        <UserActions ref={scrollRef} />
+                    <div className="h-screen pb-2 overflow-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-black">
+                        <UserActions />
                         {contacts.map((ele, i) => {
                             return <Contacts key={i} user={ele} />
                         })}
+                        <span className="text-zinc-600 relative left-[27.5%] my-2">End of your conversations</span>
                     </div>
+
                 </>
             }
 

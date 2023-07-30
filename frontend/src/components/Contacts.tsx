@@ -8,9 +8,9 @@ export default function Contacts({ user }: { user: userType }) {
             to={`chat/${user.id}`}
             className={({ isActive, isPending }) => {
                 return (
-                    isActive ? `flex px-4 py-[0.6em]  transition bg-[#141052] text-white`
-                        : isPending ? `flex px-4 py-[0.6em] transition text-white `
-                            : `flex px-4 py-[0.6em] transition hover:bg-[#04052e]  text-white`
+                    isActive ? `flex px-4 py-[0.6em]  transition bg-gray-700 text-white rounded-lg`
+                        : isPending ? `flex px-4 py-[0.6em] transition text-white rounded-lg`
+                            : `flex px-4 py-[0.6em] transition hover:bg-slate-900 rounded-lg text-white`
                 )
             }} >
             <img src={user.picture} className="h-[3.2em] rounded-full" />
