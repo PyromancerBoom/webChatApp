@@ -10,3 +10,9 @@ export interface userType {
     picture: string,
     std: string,
 }
+
+export interface MessageBoxProps {
+    username: string | null,
+    message: string | string[]
+    timeStamp: number,
+}

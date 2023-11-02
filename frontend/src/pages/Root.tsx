@@ -12,14 +12,15 @@ export default function Root() {
                 navigate("/")
             }
         }
+
     })
 
     return (
         <div className="flex flex-row">
-            <section className="w-[37em] h-full shadow-2xl">
+            <section className="w-[37em]">
                 <ContactList />
             </section>
-            <div className="w-full h-screen transition-all">
+            <div className="w-full">
                 <Outlet />
             </div>
         </div>

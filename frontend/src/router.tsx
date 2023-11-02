@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 
 import App from "./App"
 import NotFound from "./NotFound"
-import ContactChat from "./pages/ContactChat"
+import Chat from "./pages/Chat"
 import DefaultPage from "./pages/DefaultPage"
 
 const router = createBrowserRouter(
@@ -12,7 +12,7 @@ const router = createBrowserRouter(
             <Route path='/' element={<App />} >
                 <Route index element={<DefaultPage />} />
                 <Route path='chat'>
-                    <Route path=':chatId' element={<ContactChat />} />
+                    <Route path=':chatId' element={<Chat />} />
                 </Route>
             </Route>
         </>
